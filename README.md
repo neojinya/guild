@@ -41,6 +41,7 @@ usersテーブル
 
 
 festivalテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |eventname|string|null: false|
@@ -74,7 +75,7 @@ plansテーブル
 
 ### Association
 - belongs_to :user
-_ belongs_to :festival
+- belongs_to :festival
 - has_many :comments
 - has_many :areas
 - has_many :tags_plans
