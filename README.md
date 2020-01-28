@@ -31,9 +31,9 @@ usersテーブル
 |name|string|null: false|
 |email|string|null: false,unique: true|
 |password|string|null: false|
-|nickname|string|null:false|
+|nickname|string|null:false,unipue: true|
 |image|string|
-|self_introduction|string|
+|self_introduction|text|
 
 ### Association
 - has_many :plans
