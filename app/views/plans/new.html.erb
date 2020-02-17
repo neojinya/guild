@@ -1,0 +1,16 @@
+<p>post-newpage</p>
+<div>
+  <%= form_tag('/new', method: :post) do %>
+  <div>
+    <label>planname</label>
+    <input type="text" id ="planname">
+  </div>
+  <div>
+    <label>contents</label>
+    <input type="text" id ="contents">
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+  <% end %>
+</div>
