@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :users, :only => [:show]
   get 'plans' => 'plans#index'
   get 'plans/new' => 'plans#new'
-  post 'plans/new' => 'plans#new'
+  post 'plans' => 'plans#create'
 end
