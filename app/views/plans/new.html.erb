@@ -1,13 +1,25 @@
 <p>post-newpage</p>
 <div>
-  <%= form_tag('/new', method: :post) do %>
+  <%= form_tag('/plans', method: :post) do %>
   <div>
     <label>planname</label>
-    <input type="text" id ="planname">
+    <input type="text" id ="title" name="title">
   </div>
   <div>
-    <label>contents</label>
-    <input type="text" id ="contents">
+    <label>datails</label>
+    <input type="text" id ="details" name="details">
+  </div>
+  <div>
+    <label>image</label>
+    <input type="text" id ="image" name="image">
+  </div>
+  <div>
+    <label>region</label>
+    <input type="text" id ="region" name="region">
+  </div>
+  <div>
+    <label>date</label>
+    <input type="date" id ="date" name="date">
   </div>
   <div>
     <input type="submit">
