@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'plans' => 'plans#index'
   get 'plans/new' => 'plans#new'
   post 'plans' => 'plans#create'
+  get 'plans/show' => 'plans#show'
 end

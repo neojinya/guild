@@ -1,1 +1,19 @@
 <h1>mainpage</h1>
+<% @plans.each do |plan| %>
+  <div>
+  <%= plan.title %>
+  </div>
+  <div>
+  <%= plan.region %>
+  </div>
+  <div>
+  <%= plan.date %>
+  </div>
+  <div>
+  <%= plan.image %>
+  </div>
+  <div>
+  <%= plan.details %>
+  </div>
+  <br>
+<% end %>
