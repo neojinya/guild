@@ -9,6 +9,11 @@ class PlansController < ApplicationController
   def create
     Plan.create(post_params)
   end
+
+  def show
+  end
+
+
   
   private
   def post_params
