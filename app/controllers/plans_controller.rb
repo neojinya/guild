@@ -7,7 +7,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    Plan.create(post_params)
+    Plan.create(title: post_params[:title], details: post_params[:details], image: post_params[:image], region: post_params[:region], date: post_params[:date], user_id: current_user.id)
   end
 
   def show

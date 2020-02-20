@@ -10,11 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 20200217072825) do
-=======
+
+
 ActiveRecord::Schema.define(version: 20200220120101) do
->>>>>>> Stashed changes
 
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -24,10 +22,10 @@ ActiveRecord::Schema.define(version: 20200220120101) do
     t.date     "date"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-<<<<<<< Updated upstream
-=======
+
+
     t.integer  "user_id"
->>>>>>> Stashed changes
+
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -15,6 +15,7 @@
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
               <a class="post" href="/plans/new">投稿する</a>
               <%= link_to"TOPへ","/plans"%>
+              <%= link_to "マイページ", "/users/current_user.id"%>
         </div>
       <% else %>
         <div class="grid-6">
