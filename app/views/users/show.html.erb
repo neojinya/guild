@@ -1,4 +1,34 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>mypage<%=@user.id%></p>
+<div>
+  <div>
+    <%= @nickname %>
+  </div>
+  <div>
+    <%= @self_introduction %>
+  </div>
+  <div>
+    <%= @image %>
+  </div>
+  <div>
+    <% @plans.each do |plan| %>
+  <div>
+  <%= plan.title %>
+  </div>
+  <div>
+  <%= plan.region %>
+  </div>
+  <div>
+  <%= plan.date %>
+  </div>
+  <div>
+  <%= plan.image %>
+  </div>
+  <div>
+  <%= plan.details %>
+  </div>
+  <br>
+<% end %>
+  </div>
+</div>
+
 
