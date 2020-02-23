@@ -1,0 +1,26 @@
+<div>
+  <%if user_signed_in? && current_user.id == @plan.user_id %>
+    <%= link_to '編集', "/plans/#{@plan.id}/edit", method: :get %>
+    <%= link_to '削除',"/plans/#{@plan.id}/", method: :delete %>
+  <% end %>
+</div>
+  <%= @plan.title %>
+  </div>
+  <div>
+  <%= @plan.user.name %>
+  </div>
+  <div>
+  <div>
+  <%= @plan.region %>
+  </div>
+  <div>
+  <%= @plan.date %>
+  </div>
+  <div>
+  <%= @plan.image %>
+  </div>
+  <div>
+  <%= @plan.details %>
+  </div>
+  <br>
+</div>

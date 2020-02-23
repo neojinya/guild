@@ -1,7 +1,7 @@
 <h1>mainpage</h1>
 <% @plans.each do |plan| %>
   <div>
-  <%= plan.title %>
+  <%= link_to plan.title, "/plans/#{plan.id}", method: :get %>
   </div>
   <div>
   <%= plan.user.name %>

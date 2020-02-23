@@ -1,0 +1,31 @@
+<p>post-editpage</p>
+<div>
+  <%= form_tag("/plans/#{@plan.id}", method: :patch) do %>
+  <h3>
+  編集
+  </h3>
+  <div>
+    <label>planname</label>
+    <input type="text" id ="title" name="title" value="<%= @plan.title%>">
+  </div>
+  <div>
+    <label>datails</label>
+    <input type="text" id ="details" name="details" value="<%= @plan.details%>">
+  </div>
+  <div>
+    <label>image</label>
+    <input type="text" id ="image" name="image" value="<%= @plan.image%>" >
+  </div>
+  <div>
+    <label>region</label>
+    <input type="text" id ="region" name="region" value="<%= @plan.region%>" >
+  </div>
+  <div>
+    <label>date</label>
+    <input type="date" id ="date" name="date" value="<%= @plan.date%>" >
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+  <% end %>
+</div>
