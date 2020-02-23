@@ -14,6 +14,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :画像 %><br/>
+    <%= f.text_field :image, autofocus: true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :自己紹介文 %><br/>
+    <%= f.text_field :self_introduction, autofocus: true  %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -29,16 +39,6 @@
   <div class="field">
     <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :画像 %><br/>
-    <%= f.text_field :image, autofocus: true  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :自己紹介文 %><br/>
-    <%= f.text_field :self_introduction, autofocus: true  %>
   </div>
 
   <div class="actions">
