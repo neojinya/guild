@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   def show
-    #@user = User.find(params[:id])
-    @name = current_user.name
-    @nickname = current_user.nickname
-    @image = current_user.image
-    @self_introduction = current_user.self_introduction
+    @user = current_user
     @plans = current_user.plans
   end
+
+  # def edit
+  # end
 end
