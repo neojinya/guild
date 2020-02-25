@@ -1,25 +1,26 @@
-<div>
+<div class = "post_operation">
   <%if user_signed_in? && current_user.id == @plan.user_id %>
     <%= link_to '編集', "/plans/#{@plan.id}/edit", method: :get %>
     <%= link_to '削除',"/plans/#{@plan.id}/", method: :delete %>
   <% end %>
 </div>
+<div class="post_details_block">
+  <div class="plan_title">
   <%= @plan.title %>
   </div>
-  <div>
+  <div class="plan_user">
   <%= @plan.user.name %>
   </div>
-  <div>
-  <div>
+  <div class="region">
   <%= @plan.region %>
   </div>
-  <div>
+  <div class="date">
   <%= @plan.date %>
   </div>
-  <div>
-  <%= @plan.image %>
+  <div class="plan_image">
+  <%= image_tag @plan.image, size: '280x320' %>
   </div>
-  <div>
+  <div class="plan_details_text">
   <%= @plan.details %>
   </div>
   <br>

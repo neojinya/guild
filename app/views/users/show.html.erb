@@ -1,13 +1,14 @@
 <h1>Users#show</h1>
-<% if user_signed_in? %>
-  <%= link_to '編集する', "/users/edit", method: :get %>
-  <%= link_to '退会する', "/users", method: :delete %>
-<% end %>
-<div>
+<div class = "user_operation_menu">
+  <% if user_signed_in? %>
+    <%= link_to '編集する', "/users/edit", method: :get %>
+    <%= link_to '退会する', "/users", method: :delete %>
+  <% end %>
+</div>
+<div class = "user_details_block">
   <div>
     <%= @user.name %>
   </div>
-  <div>
   <div>
     <%= @user.nickname %>
   </div>
@@ -15,28 +16,29 @@
     <%= @user.self_introduction %>
   </div>
   <div>
-    <%= @user.image %>
+    <%= image_tag @user.image %>
   </div>
-  <div>
-    <% @plans.each do |plan| %>
-  <div>
+</div>
+<div class = "plans_block">
+  <% @plans.each do |plan| %>
+  <div class="plan_title">
   <%= plan.title %>
   </div>
-  <div>
+  <div class = "region">
   <%= plan.region %>
   </div>
-  <div>
+  <div class = "date">
   <%= plan.date %>
   </div>
-  <div>
-  <%= plan.image %>
+  <div class = "plan_image">
+  <%= image_tag plan.image, size: '280x320' %>
   </div>
-  <div>
+  <div class = "plan_detail_text">
   <%= plan.details %>
   </div>
   <br>
 <% end %>
-  </div>
+  
 </div>
 
 
