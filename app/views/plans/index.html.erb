@@ -1,23 +1,45 @@
-<h1>mainpage</h1>
-<% @plans.each do |plan| %>
-  <div>
-  <%= link_to plan.title, "/plans/#{plan.id}", method: :get %>
+<div class = "cover_image">
+  <div class = "band">
+    <div class ="main-title">
+      <h1>kari title</h1>
+    </div>
   </div>
-  <div>
-  <%= plan.user.name %>
+</div>
+<div class = "all_contents">
+  <div class = "plan_contents">
+  <h3 class = "plan_finding">一覧</h3>
+    <div class="row">
+        <% @plans.each do |plan| %>
+          <div class="col-sm-4">
+            <%= link_to("/plans/#{plan.id}", method: :get) do %>
+              <div class="card" style="width: 22rem; heght: 22rem;">
+              <%# <img class="card-img-top" src=<%= image_tag plan.image %>
+              <%# <%= image_tag plan.image, size: '280x320' %> 
+              <%= image_tag plan.image, class:"card-img-top" %>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <%= link_to plan.title, "/plans/#{plan.id}", method: :get %>
+                  </h4>
+                  <p class="card-text">
+                    <%= plan.details %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
   </div>
-  <div>
-  <div>
-  <%= plan.region %>
+  <div class = "right_contents">
+    <div class = "resion_block">
+      <h4>地域</h4>
+      <ul>
+        <li>resion</li>
+        <li>resion</li>
+        <li>resion</li>
+        <li>resion</li>
+        <li>resion</li>
+      </ul>
+    </div>
   </div>
-  <div>
-  <%= plan.date %>
-  </div>
-  <div>
-  <%= plan.image %>
-  </div>
-  <div>
-  <%= plan.details %>
-  </div>
-  <br>
-<% end %>
+</div>

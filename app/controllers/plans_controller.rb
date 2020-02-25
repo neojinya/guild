@@ -22,6 +22,7 @@ class PlansController < ApplicationController
     plan = Plan.find(params[:id])
     if plan.user_id == current_user.id
       plan.update(post_params)
+      redirect_to '/'
     end
   end
 

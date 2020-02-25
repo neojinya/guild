@@ -1,3 +1,64 @@
 // Place all the styles related to the plans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 全てのマージン、パディングを0に
+* {
+  margin: 0px;
+  padding: 0px;
+  }
+  
+
+.main-title {
+  text-align: center;
+}
+
+
+body{
+  margin-top: -20px;
+}
+
+.cover_image {
+  height: 450px;
+  width: auto;
+  background-image: url("revolution_square 2.jpg");
+}
+
+.card {
+  border:groove 3px rgb(340, 300, 300);
+  margin-top: 20px;
+  // object-fit: fill;
+  height:30rem;
+}
+
+.all_contents {
+  margin:20px;
+}
+
+.plan_contents {
+  width: 700px;
+  float: left;
+}
+
+.card-img-top {
+  height:22rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width /***/:auto;
+  }
+
+.right_contents {
+  width: 20%;
+  float: right;
+}
+
+.main-title h1 {
+  color: rgb(255, 141, 106);
+}
+
+ul a{
+  color: white;
+}
