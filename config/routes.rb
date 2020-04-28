@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:show]
   get 'plans' => 'plans#index'
   get 'plans/new' => 'plans#new'
+  # post 'plans' => 'plans#create',as:"plans"
   post 'plans' => 'plans#create'
   get 'plans/:id' => 'plans#show'
   get 'plans/:id/edit' => 'plans#edit'

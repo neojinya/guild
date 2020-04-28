@@ -1,28 +1,29 @@
 <p>post-newpage</p>
-<div class = "post_form_block">
-  <%= form_tag('/plans', method: :post) do %>
-  <div>
-    <label>planname</label>
-    <input type="text" id ="title" name="title">
+<div class = "post__form">
+  <%= form_for(@plan) do |f| %>
+  <%# <%= form_tag('/plans', method: :post, :multipart => true) do %>
+  <div class = "post__form__title">
+    <%=f.label :title %>
+    <%= f.text_field :title %>
   </div>
-  <div>
-    <label>datails</label>
-    <input type="text" id ="details" name="details">
+  <div class = "post__form__details">
+    <%=f.label :details %>
+    <%= f.text_area :details %> 
   </div>
-  <div>
-    <label>image</label>
-    <input type="text" id ="image" name="image">
+  <div class = "post__form__image">
+    <%=f.label :image %>
+    <%= f.text_field :image %>
   </div>
-  <div>
-    <label>region</label>
-    <input type="text" id ="region" name="region">
+  <div class = "post__form__region">
+    <%=f.label :region %>
+    <%= f.text_field :region %>
   </div>
-  <div>
-    <label>date</label>
-    <input type="date" id ="date" name="date">
+  <div class = "post__form__date">
+    <%=f.label :date %>
+    <%= f.text_field :date %>
   </div>
-  <div>
-    <input type="submit">
+  <div class = "post__form__submit">
+    <%= f.submit %>
   </div>
   <% end %>
 </div>
