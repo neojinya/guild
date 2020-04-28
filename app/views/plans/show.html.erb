@@ -18,7 +18,9 @@
   <%= @plan.date %>
   </div>
   <div class="plan_image">
-  <%= image_tag @plan.image, size: '280x320' %>
+  <% if @plan.image.attached? %>
+    <%= image_tag (@plan.thumbnail) %>
+  <% end %>
   </div>
   <div class="plan_details_text">
   <%= @plan.details %>
