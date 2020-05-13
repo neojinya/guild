@@ -8,8 +8,10 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.new(post_params)
-    binding.pry
+    @plan = Plan.new(plan_params)
+    if @plan.save
+    end
+    
   end
 
   def show
@@ -32,11 +34,10 @@ class PlansController < ApplicationController
     plan = Plan.find(params[:id])
     plan.destroy if plan.user_id == current_user.id
   end
-
-
   
   private
-  def post_params
-    params.require(:plan).permit(:title, :details, :image, :region, :date)
+
+  def plan_params
+    params.require(:plan).permit(:title, :details, :image, :region, :date).merge(user_id: current_user.id)
   end
 end

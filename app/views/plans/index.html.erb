@@ -14,7 +14,7 @@
             <%= link_to("/plans/#{plan.id}", method: :get) do %>
               <div class="card" style="width: 22rem; heght: 22rem;">
               <%# <img class="card-img-top" src= plan.image.url > %>
-              <%= image_tag plan.image.url, size: '280x320' %>
+              <%# <%= image_tag plan.image.url, size: '280x320' %> 
               <%= image_tag plan.image.to_s, class:"card-img-top" %>
                 <div class="card-body">
                   <h4 class="card-title">
