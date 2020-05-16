@@ -8,58 +8,88 @@
   padding: 0px;
   box-sizing: border-box;
   }
-  
-
-.main-title {
-  text-align: center;
-}
-
-
-body{
-  margin-top: -20px;
-}
-
-.cover_image {
-  height: 450px;
-  width: auto;
-  background-image: url("revolution_square 2.jpg");
-}
-
-.card {
-  border:groove 3px rgb(340, 300, 300);
-  margin-top: 20px;
-  // object-fit: fill;
-  height:30rem;
-}
-
-.all_contents {
-  margin:20px;
-}
-
-.plan_contents {
-  width: 700px;
-  float: left;
-}
-
-.card-img-top {
-  height:22rem;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  width /***/:auto;
+html {
+  height:100%;
+  body{
+    height:100%;
+    margin:0;
+    background-color: rgb(243, 245, 245);
+    header{
+      a {
+        color:white;
+      }
+    }
+    margin-top: -20px;
+    .main_container{
+      height:100%;
+      .cover_image {
+        height: 450px;
+        width: auto;
+        background-image: url("revolution_square 2.jpg");
+        .band {
+          .main-title {
+            text-align: center;
+            h1 {
+              color: rgb(255, 141, 106);
+            }
+          }
+        }
+      }
+      .all_contents {
+        margin:20px;
+        .plan_contents {
+          width: 100%;
+          float: left;
+          .row {
+            .col-sm-3 {
+              .card {
+                border:groove 1px rgb(340, 300, 300);
+                margin-top: 20px;
+                width: 250px;
+                height: 300px;
+                // object-fit: fill;
+                background-color: #fff;
+                a {
+                  display: block;
+                  overflow: hidden;
+                  .card-img-top {
+                    width:100%;
+                    height:220px;
+                    // object-fit: contain;
+                    // overflow: hidden;
+                    object-fit: cover;
+                    img {
+                      // max-width: 100%;
+                      // height: 100%;
+                      width /***/:auto;
+                      
+                      }
+                  }
+                }
+                .cord-body {
+                  a {
+                    height:0;
+                  }
+                  h4 {
+                    color: darkslategray;
+                  }
+                  p {
+                    color: darkslategrey;
+                    background-color: darkturquoise;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .right_contents {
+          width: 20%;
+          float: right;
+          ul a{
+            color: white;
+          }
+        }
+      }
+    }
   }
-
-.right_contents {
-  width: 20%;
-  float: right;
-}
-
-.main-title h1 {
-  color: rgb(255, 141, 106);
-}
-
-ul a{
-  color: white;
 }
