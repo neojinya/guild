@@ -10,12 +10,10 @@
   <h3 class = "plan_finding">一覧</h3>
     <div class="row">
         <% @plans.each do |plan| %>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <%= link_to("/plans/#{plan.id}", method: :get) do %>
-              <div class="card" style="width: 22rem; heght: 22rem;">
-              <%# <img class="card-img-top" src= plan.image.url > %>
-              <%# <%= image_tag plan.image.url, size: '280x320' %> 
-              <%= image_tag plan.image.to_s, class:"card-img-top" %>
+              <div class="card" >
+                <%= image_tag plan.image.to_s, class:"card-img-top" %>
                 <div class="card-body">
                   <h4 class="card-title">
                     <%= link_to plan.title, "/plans/#{plan.id}", method: :get %>
@@ -30,7 +28,7 @@
         <% end %>
     </div>
   </div>
-  <div class = "right_contents">
+  <%# <div class = "right_contents">
     <div class = "resion_block">
       <h4>地域</h4>
       <ul>
@@ -41,5 +39,5 @@
         <li>resion</li>
       </ul>
     </div>
-  </div>
+  </div> %>
 </div>
