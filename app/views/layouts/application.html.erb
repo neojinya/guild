@@ -3,9 +3,13 @@
   <head>
     <title>Guild</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# turbolinksを削除 %>
+    <%# <%= javascript_include_tag 'application' %>
+    <script type="text/javascript" src="bg_swicher.js"></script>
+    <script src="./jquery.bgswitcher.js"></script>
   </head>
 
   <body>

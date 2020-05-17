@@ -10,7 +10,7 @@
   <h3 class = "plan_finding">一覧</h3>
     <div class="row">
         <% @plans.each do |plan| %>
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <%= link_to("/plans/#{plan.id}", method: :get) do %>
               <div class="card" >
                 <%= image_tag plan.image.to_s, class:"card-img-top" %>
