@@ -11,6 +11,7 @@
 html {
   height:100%;
   body{
+    min-width:1024px;
     height:100%;
     margin:0;
     background-color: rgb(243, 245, 245);
@@ -23,9 +24,12 @@ html {
     .main_container{
       height:100%;
       .cover_image {
-        height: 450px;
+        height: 550px;
         width: auto;
-        background-image: url("revolution_square 2.jpg");
+        // background-image: url("revolution_square 2.jpg");
+        background-size: cover;
+        background-position: center;
+        // object-fit: cover;
         .band {
           .main-title {
             text-align: center;
@@ -36,12 +40,15 @@ html {
         }
       }
       .all_contents {
-        margin:20px;
+        // margin:20px;
+        display: flex;
+        justify-content: center;
         .plan_contents {
-          width: 100%;
+          width: 950px;
           float: left;
           .row {
-            .col-sm-3 {
+            min-width: 950px;
+            .col-sm-4 {
               .card {
                 border:groove 1px rgb(340, 300, 300);
                 margin-top: 20px;
