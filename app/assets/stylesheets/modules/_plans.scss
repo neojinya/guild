@@ -12,9 +12,10 @@ html {
   height:100%;
   body{
     min-width:1024px;
-    height:100%;
+    min-height:100%;
     margin:0;
     background-color: rgb(243, 245, 245);
+    position: relative;
     header{
       a {
         color:white;
@@ -101,12 +102,30 @@ html {
             background-position: center;
           }
         }
-        .right_contents {
-          width: 20%;
-          float: right;
-          ul a{
-            color: white;
-          }
+      }
+    }
+    .footer {
+      height: 150px;
+      width: 100%;
+      clear: both;
+      position: absolute;
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: rgb(146, 146, 206);
+      // bottom: 0px;
+      .footer_menu {
+        width: 900px;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        .footer_menu_left {
+          height:100%;
+          width: 50%;
+        }
+        .footer_menu_right {
+          height: 100%;
+          width: 50%;
         }
       }
     }
