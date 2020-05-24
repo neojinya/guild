@@ -94,12 +94,16 @@ html {
           margin-top: 50px;
           width: 100%;
           height:auto;
-          .map_contents_image {
-            height: 500px;
-            width: 900px;
-            background-image: url("worldmap.jpeg");
-            background-size: cover;
-            background-position: center;
+          // .map_contents_image {
+          //   height: 0px;
+          //   width: 0px;
+          //   background-image: url("worldmap.jpeg");
+          //   background-size: cover;
+          //   background-position: center;
+          // }
+          #target {
+            height: 200px;
+            width: 550px;
           }
         }
       }

@@ -18,12 +18,64 @@
   <%= @plan.date %>
   </div>
   <div class="plan_image">
-  <% if @plan.image.attached? %>
-    <%= image_tag (@plan.thumbnail) %>
-  <% end %>
+  <%# <% if @plan.image.attached? %>
+    <%# <%= image_tag (@plan.thumbnail) %>
+    <%= image_tag (@plan.image) %>
+  <%# <% end %>
   </div>
   <div class="plan_details_text">
   <%= @plan.details %>
   </div>
+  <div class = "api_sunipet">
+  </div>
   <br>
 </div>
+<%= @response %>
+<%# 次は繰り返しで安い順に出発地、到着地、値段を出力 %>
+<%# <%= @response["Quotes"][0]["MinPrice"] %> %>
+<%# <%= @response["Places"][1]["Name"] %> %>
+<%# <%= @response["Places"][0]["Name"] %> %>
+
+<%# EasyTranslateのAPIが見つからないためAPIkey取得不可 %>
+<%# <%= EasyTranslate.translate(@response["Carriers"][0]["Name"], :to => 'JP') %> %>
+<%# <%= @translate_airline %> %>
+<%# <%= EasyTranslate.translate("hello", :to => 'JP') %> %>
+<script>
+// console.log("ok");
+// // require 'unirest'
+
+// response = Unirest.get "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2020-06-01?inboundpartialdate=2020-07-01",
+//   headers:{
+//     "X-RapidAPI-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+//     "X-RapidAPI-Key" => "5fbb370a14msh448274ed39c0dfap1ac708jsn3bde6104ef41"
+//   }
+//   console.log(response);
+
+
+// require 'uri'
+// require 'net/http'
+// require 'openssl'
+
+// url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2020-06-01?inboundpartialdate=2020-07-01")
+
+// http = Net::HTTP.new(url.host, url.port)
+// http.use_ssl = true
+// http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+// request = Net::HTTP::Get.new(url)
+// request["x-rapidapi-host"] = 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
+// request["x-rapidapi-key"] = '5fbb370a14msh448274ed39c0dfap1ac708jsn3bde6104ef41'
+
+// response = http.request(request)
+// puts response.read_body
+  
+</script>
+<script>
+var from = 1;
+var to=99;
+var num=Array(to-from+1).fill(null).map((x,y)=>(y+from)**4).reduce((x,y)=>x+y);
+console.log(num)
+</script>
+
+
+
