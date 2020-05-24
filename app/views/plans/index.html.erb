@@ -31,10 +31,31 @@
     <div class = "map_contents">
       <h3 class = "plan_finding">地図でイベントを探してみる</h3>
       <%= link_to('')%>
-      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Oo8-ske08sW3WFZBP3OL8NA8U4SWXj4q" width="900" height="700"></iframe>
+      <div id = 'target'>
+        <%# <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Oo8-ske08sW3WFZBP3OL8NA8U4SWXj4q" width="900" height="700"></iframe> %>
+      </div>
       <%# <div class = "map_contents_image"> %>
     </div>
   </div>
 </div>
   
 </div>
+
+<script
+  src = "https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyDhIlN8n5iDAU93Fn8CGhnbiHHlxXtH9i8&callback=initMap" async defer></script>
+<script>
+function initMap(){
+  'use strict';
+
+  var target = document.getElementById('target');
+  console.log('ok');
+  var map = map;
+  var tokyo = {lat: 35.681167, lng: 139.767052};
+
+  map = new google.maps.Map(target,{
+    center: tokyo,
+    zoom 15
+  });
+
+}
+</script>
