@@ -50,14 +50,30 @@ function initMap(){
   'use strict';
 
   var target = document.getElementById('target');
-  console.log('ok');
-  var map = map;
-  var tokyo = {lat: 35.681167, lng: 139.767052};
+  // var map = map;
+  // var tokyo = {lat: 35.681167, lng: 139.767052};
 
-  map = new google.maps.Map(target,{
-    center: tokyo,
-    zoom: 15
-  });
+  // map = new google.maps.Map(target,{
+  //   center: tokyo,
+  //   zoom: 15
+  // });
+
+  if(!navigator.geolocation){
+        alert('Geolocation not supported');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(function(position){
+        new google.maps.Map(target, {
+          center: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          },
+          zoom: 15
+        });
+      }, function(){
+        alert('Geolocation failed!');
+        return;
+      });
 
 }
 
