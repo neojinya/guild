@@ -50,6 +50,9 @@ function initMap(){
   'use strict';
 
   var target = document.getElementById('target');
+  var geocoder = new google.maps.Geocoder();
+  var map;
+  
   // var map = map;
   // var tokyo = {lat: 35.681167, lng: 139.767052};
 
@@ -57,23 +60,93 @@ function initMap(){
   //   center: tokyo,
   //   zoom: 15
   // });
+  
 
-  if(!navigator.geolocation){
+
+      // var map = new google.maps.Map(document.getElementById("target"));
+
+      // var latlng = map.getCenter();
+      
+  function addressConversion(map) {
+    countrycode(Area, origin="country.name", destination="iso2c")
+    var latlng = map.getCenter();
+      //現在Google cloud platformを有料にしていないため動作しない。完成まえに有料枠にすること
+      geocoder.geocode({
+        location: latlng
+          },function(results, status) {
+            if (status !== 'ok') {
+              alert('Failed: '+ status);
+              return;
+            }
+            //results[0].formatted_addressに返ってきた住所が入っている
+            if (results[0]){
+              new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: results[0].
+                formatted_address,
+                animation: google.maps.Animation.DROP
+              });
+            }else{
+              alert('No results found');
+              return;
+            }
+          console.log(results[0]);
+        });
+  }
+
+  function showMap(callback){
+    if(!navigator.geolocation){
         alert('Geolocation not supported');
         return;
       }
       navigator.geolocation.getCurrentPosition(function(position){
-        new google.maps.Map(target, {
+        map = new google.maps.Map(target, {
           center: {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           },
           zoom: 15
         });
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        // return {lat: lat, lng: lng};
+        callback(map);
       }, function(){
         alert('Geolocation failed!');
         return;
       });
+  }
+
+  var map = showMap(addressConversion);
+
+    // map.addListener('load', function(e) {
+      // geocoder.geocode({
+      //   location: {
+      //     lat: position.coords.latitude,
+      //     lng: position.coords.longitude
+      //   }, function(results, status) {
+      //     if (status !== 'ok') {
+      //       alert('Failed: ' +status);
+      //       return;
+      //     }
+      //     if (results[0]) {
+      //       new google.maps.Marker({
+      //         position: {
+      //           lat: position.coords.latitude,
+      //           lng: position.coords.longitude
+      //         }
+      //         map: map,
+      //         title: results[0].formatted_address,
+      //         animation: google.maps.Animation.DROP
+      //       });
+      //     }else {
+      //       alert('No results found');
+      //       return;
+      //     }
+      //   }
+      // });
+    // });
 
 }
 
