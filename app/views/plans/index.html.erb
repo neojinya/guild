@@ -68,7 +68,7 @@ function initMap(){
       // var latlng = map.getCenter();
       
   function addressConversion(map) {
-    countrycode(Area, origin="country.name", destination="iso2c")
+    // countrycode(Area, origin="country.name", destination="iso2c")
     var latlng = map.getCenter();
       //現在Google cloud platformを有料にしていないため動作しない。完成まえに有料枠にすること
       geocoder.geocode({
@@ -119,6 +119,29 @@ function initMap(){
   }
 
   var map = showMap(addressConversion);
+
+  //ここからマーカーを落とす(marker落としもgeocoding必要)
+  map.addListener('click', function(e) {
+    geocoder.geocode({
+      location: e.latLng
+    }, function(results, status) {
+      if (status !== 'OK') {
+        alert('Failed: '+ status);
+        return;
+      }
+      if (results[0]){
+        new google.maps.Marker({
+          position: e.latLng,
+          map: map,
+          title: results[0].formatted_address,
+          animation: google.maps.Animation.DROP
+        });
+      }else{
+        alert('No results found');
+        return;
+      }
+    });
+  });
 
     // map.addListener('load', function(e) {
       // geocoder.geocode({
