@@ -28,7 +28,7 @@ class PlansController < ApplicationController
     require 'net/http'
     require 'openssl'
 
-    url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/JP/JPY/ja-JP/JP-sky/BKK-sky/2020-06-01?inboundpartialdate=2020-07-01")
+    url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/JP/JPY/ja-JP/JP-sky/BKK-sky/2020-07-01?inboundpartialdate=2020-08-01")
     http = Net::HTTP.new(url.host, url.port)
     #出来上がるもの#<Net::HTTP skyscanner-skyscanner-flight-search-v1.p.rapidapi.com:443 open=false>
     http.use_ssl = true
@@ -42,8 +42,30 @@ class PlansController < ApplicationController
     request["x-rapidapi-key"] = '5fbb370a14msh448274ed39c0dfap1ac708jsn3bde6104ef41'
 
     # リクエストの送信
-    # response = http.request(request)
-    # @response = JSON.parse(response.body)
+    response = http.request(request)
+    @response = JSON.parse(response.body)
+
+    @indicate_place_array = []
+    @response["Quotes"].each do |quote|
+      @response["Places"].each do |place|
+        if place["PlaceId"] == quote["OutboundLeg"]["OriginId"]
+          place["MinPrice"] = quote["MinPrice"]
+          @indicate_place_array.push(place)
+        end
+      end
+    end
+    @indicate_place_array.sort_by! { |a| a["MinPrice"] }
+    # @result = @response["Places"].select { |x| x["PlaceId"].try(:include?, @origin_place_id.to_s) || x["Name"].try(:include?, @origin_place_id.to_s)}
+    
+    # @places.each do |v|
+    #   # if v["PlaceId"].try(:include?, @origin_place_id)
+    #   #   @place = v
+    #   # end
+    #   if v["PlaceId"] == @origin_place_id
+    #     @place = v["Name"]
+    #   end
+    # end
+    # @result = @places.select { |x| x["PlaceId"].try(:include?, @origin_place_id) }
 
     # EazyTranslateというgemを使った翻訳は、APIが現在ないのかAPIkeyが取得できないため実装できず。
     # @response = EasyTranslate.translate('response.body', :to => 'ja')
