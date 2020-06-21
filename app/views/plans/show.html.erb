@@ -31,13 +31,14 @@
   <br>
 </div>
 <%# <%= @response["Places"] %>
-<%# 次は繰り返しで安い順に出発地、到着地、値段を出力 %>
 
+<p>到着地: <%= @arrival_airport %></p>
+<%# 次は繰り返しで安い順に出発地、到着地、値段を出力 %>
 
 <%= @place %>
 <%= @OriginId_array %>
 <% @indicate_place_array.each do |place| %>
-  <p>出発地: <%= place["Name"] %>     最安値: ¥<%= place["MinPrice"] %></p>
+  <p>出発地: <%= place["Name"] %>     最安値: ¥<%= place["MinPrice"].floor %></p>
 <% end %>
 
 <%# EasyTranslateのAPIが見つからないためAPIkey取得不可 %>
