@@ -15,7 +15,6 @@ class PlansController < ApplicationController
   end
 
   def show
-    
     # require 'unirest'
     @plan = Plan.find(params[:id])
     # skyscannerAPIを叩いて情報を取得(unirest形式)
@@ -24,11 +23,34 @@ class PlansController < ApplicationController
   #   "X-RapidAPI-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
   #   "X-RapidAPI-Key" => "5fbb370a14msh448274ed39c0dfap1ac708jsn3bde6104ef41"
   # }
+
+    # ここから都市名を最安値を取得するためのリクエストで使用する都市名コードに変換するリクエストを記述
     require 'uri'
     require 'net/http'
     require 'openssl'
+    # url = URI.encode("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/JP/JPY/ja-JP/?query=#{@plan.region}")
+    # uri = URI.decode(url)
+    url = URI.encode("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/JP/JPY/ja-JP/?query=#{@plan.region}")
+    # url = URI.parse("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/JP/JPY/ja-JP/?query=#{@plan.region}")
+    uri = URI.parse(url)
 
-    url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/JP/JPY/ja-JP/JP-sky/BKK-sky/2020-07-01?inboundpartialdate=2020-08-01")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(url)
+    request["x-rapidapi-host"] = 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
+    request["x-rapidapi-key"] = '5fbb370a14msh448274ed39c0dfap1ac708jsn3bde6104ef41'
+
+    response = http.request(request)
+    @response_listPlaces = JSON.parse(response.body)
+
+    @arrival_airport = @response_listPlaces["Places"][0]["PlaceName"]
+    # regionが国の場合でもPlaceIdならばレスポンスが得れるが、CityIdだと-skyが帰ってきて、エラー吐かれるため現在はPlaceIdで到着空港を指定している
+    city_id = @response_listPlaces["Places"][0]["PlaceId"]
+    # binding.pry
+    # ここから空港間の最安値情報を取得
+    url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/JP/JPY/ja-JP/JP-sky/#{city_id}/2020-07-01?inboundpartialdate=2020-08-01")
     http = Net::HTTP.new(url.host, url.port)
     #出来上がるもの#<Net::HTTP skyscanner-skyscanner-flight-search-v1.p.rapidapi.com:443 open=false>
     http.use_ssl = true
@@ -44,7 +66,6 @@ class PlansController < ApplicationController
     # リクエストの送信
     response = http.request(request)
     @response = JSON.parse(response.body)
-
     @indicate_place_array = []
     @response["Quotes"].each do |quote|
       @response["Places"].each do |place|
