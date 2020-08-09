@@ -1,0 +1,118 @@
+// Place all the styles related to the plans controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 全てのマージン、パディングを0に
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  }
+  .main_container{
+    // background-color:#e8e8e8;
+      width: 950px;
+      height: 100%;
+      margin: 0 auto;
+      background-color:#e8e8e8;
+      // clear: both;
+    .plan_title{
+      border: 1px solid;
+      text-align: center;
+    }
+    .main_container_show{
+      // float: left;
+      // clear: both;
+      display: flex;
+      .main_container_left{
+        width: 600px;
+        // float: left;
+        .plan_detail_box{
+          border: 1px solid;
+          .plan_image{
+            text-align: center;
+            .top_image{
+            object-fit: cover;
+            width: 600px;
+            height: 450px;
+            }
+          }
+          .plan_user{
+            font-size: 1.2em;
+            color: orange;
+          }
+          .plan_details_text{
+            line-height: 2em;
+            // border: 1px solid;
+          } 
+        }
+        .api_block{
+          border: 1px solid;
+        }
+      }
+      .main_container_right{
+        // float: left;
+        // height: 100%;
+        // width: 400px;
+        flex: 1;
+        text-align: center;
+        .right_contents{
+          width: 350px;
+          height: auto;
+          margin: 0 auto;
+          border: 1px solid;
+        }
+      }
+      .participationButton{
+        border: 1px solid;
+      }
+    }
+        .related_article{
+          height: auto;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          .card{
+            height: auto;
+            width: 250px;
+            box-shadow: 2px 4px 15px rgba(0,0,0,.2);
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 20px;
+            .card_image{
+              background-color: gray;
+              width: 100%;
+              padding-top: 56.25%;
+              height: auto;
+            }
+            .card_content{
+              padding: 20px 18px;
+              .card_content_title{
+                font-size: 20px;
+                line-height: 125%;
+                font-weight: bold;
+                margin-bottom: 10px;
+              }
+              .card_content_text{
+                font-size: 12px;
+                line-height: 150%;
+                // margin: 20px 18px;
+              }
+            }
+          }
+        }
+  }
+
+  footer{
+    // clear: both;
+  }
+
+  .main_container_show::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+
+h2{
+  color: gray;
+}
