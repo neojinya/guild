@@ -111,6 +111,17 @@ function initMap(){
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
         // return {lat: lat, lng: lng};
+        if (('sessionStorage' in window) && (window.sessionStorage !== null)) {
+          // この3行どれもセッション情報を保存している。（結果は等価）
+          sessionStorage.setItem('session_save_lat',lat);
+          window.sessionStorage.setItem('session_save_lng', lng);
+          // sessionStorage.session_save = 1
+          console.log("lat");
+          console.log(lat);
+          console.log("session_save_lat");
+          console.log(session_save_lat);
+          
+        };
         callback(map);
       }, function(){
         alert('Geolocation failed!');

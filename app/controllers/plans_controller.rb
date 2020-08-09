@@ -48,9 +48,9 @@ class PlansController < ApplicationController
     @arrival_airport = @response_listPlaces["Places"][0]["PlaceName"]
     # regionが国の場合でもPlaceIdならばレスポンスが得れるが、CityIdだと-skyが帰ってきて、エラー吐かれるため現在はPlaceIdで到着空港を指定している
     city_id = @response_listPlaces["Places"][0]["PlaceId"]
-    # binding.pry
+
     # ここから空港間の最安値情報を取得
-    url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/JP/JPY/ja-JP/JP-sky/#{city_id}/2020-07-01?inboundpartialdate=2020-08-01")
+    url = URI("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/JP/JPY/ja-JP/JP-sky/#{city_id}/2020-09-01?inboundpartialdate=2020-10-01")
     http = Net::HTTP.new(url.host, url.port)
     #出来上がるもの#<Net::HTTP skyscanner-skyscanner-flight-search-v1.p.rapidapi.com:443 open=false>
     http.use_ssl = true

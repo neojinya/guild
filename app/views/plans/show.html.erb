@@ -1,50 +1,160 @@
-<div class = "post_operation">
-  <%if user_signed_in? && current_user.id == @plan.user_id %>
-    <%= link_to '編集', "/plans/#{@plan.id}/edit", method: :get %>
-    <%= link_to '削除',"/plans/#{@plan.id}/", method: :delete %>
-  <% end %>
-</div>
-<div class="post_details_block">
-  <div class="plan_title">
-  <%= @plan.title %>
-  </div>
-  <div class="plan_user">
-  <%= @plan.user.name %>
-  </div>
-  <div class="region">
-  <%= @plan.region %>
-  </div>
-  <div class="date">
-  <%= @plan.date %>
-  </div>
-  <div class="plan_image">
-  <%# <% if @plan.image.attached? %>
-    <%# <%= image_tag (@plan.thumbnail) %>
-    <%= image_tag (@plan.image) %>
-  <%# <% end %>
-  </div>
-  <div class="plan_details_text">
-  <%= @plan.details %>
-  </div>
-  <div class = "api_sunipet">
-  </div>
-  <br>
-</div>
-<%# <%= @response["Places"] %>
-
-<p>到着地: <%= @arrival_airport %></p>
-<%# 次は繰り返しで安い順に出発地、到着地、値段を出力 %>
-
-<%= @place %>
-<%= @OriginId_array %>
-<% @indicate_place_array.each do |place| %>
-  <p>出発地: <%= place["Name"] %>     最安値: ¥<%= place["MinPrice"].floor %></p>
+<%if user_signed_in? && current_user.id == @plan.user_id %>
+  <%= link_to '編集', "/plans/#{@plan.id}/edit", method: :get %>
+  <%= link_to '削除',"/plans/#{@plan.id}/", method: :delete %>
 <% end %>
 
-<%# EasyTranslateのAPIが見つからないためAPIkey取得不可 %>
-<%# <%= EasyTranslate.translate(@response["Carriers"][0]["Name"], :to => 'JP') %> %>
-<%# <%= @translate_airline %> %>
-<%# <%= EasyTranslate.translate("hello", :to => 'JP') %> %>
+<div class="plan_title">
+      <h2><%= @plan.title %></h2>
+    </div>
+<div class="main_container_show">
+  <div class = "post_operation">
+    
+  </div>
+  <div class="main_container_left">
+    <div class="plan_detail_box">
+      <div class="plan_image">
+      <%# <% if @plan.image.attached? %>
+        <%# <%= image_tag (@plan.thumbnail) %>
+        <%= image_tag (@plan.image), class: 'top_image' %>
+      <%# <% end %>
+      </div>
+      <div class="plan_user"> 
+        <%= @plan.user.name %>
+      </div>
+      <div class="plan_details_text">
+        <%= @plan.details %>
+      </div>
+
+      <div class="plan_details_region">
+      場所
+        <%= @plan.region %>
+      </div>
+
+      <div class="plan_details_date">
+      開催日
+      <%= @plan.date %>
+      </div>
+    </div>
+
+    <div class="api_block">
+      <h4>現地までの航空券情報API</h4>
+        <div class = "api_sunipet">
+          <%# <%= @response["Places"] %>
+
+          <p>到着地: <%= @arrival_airport %></p>
+          <%# 次は繰り返しで安い順に出発地、到着地、値段を出力 %>
+
+          <%= @place %>
+          <%= @OriginId_array %>
+          <% @indicate_place_array.each do |place| %>
+            <p>出発地: <%= place["Name"] %>     最安値: ¥<%= place["MinPrice"].floor %></p>
+          <% end %>
+
+          <%# EasyTranslateのAPIが見つからないためAPIkey取得不可 %>
+          <%# <%= EasyTranslate.translate(@response["Carriers"][0]["Name"], :to => 'JP') %> %>
+          <%# <%= @translate_airline %> %>
+          <%# <%= EasyTranslate.translate("hello", :to => 'JP') %> %>
+        </div>
+        <br>
+    </div>
+  </div>
+  <div class="main_container_right">
+    <div class="right_contents">
+      <div class="participationButton">
+        <button type="button" name="aaa" value="aaa">
+          <font size="2">とりあえず</font><font size="5" color="#333399">参加</font>
+        </button>
+      </div>
+      <div class="comment_box">
+        <div class="comment_form">
+          <form action="show.erb" method="post">
+            <label for="comment">コメント</label>
+            <textarea id="comment" name="comment"></textarea>
+            <input type="submit" value="送信する">
+          </form>
+        </div>
+        <div class="comment_text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>近くのプラン</h3>
+<div class="related_article">
+    <div class="card">
+      <div class="card_image">
+      </div>
+      <div class="card_content">
+        <div class="card_content_title">
+          タイトル
+        </div>
+        <div class="card_content_text">
+          ここにはコンテンツのテキスト
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card_image">
+      </div>
+      <div class="card_content">
+        <div class="card_content_title">
+          タイトル
+        </div>
+        <div class="card_content_text">
+          ここにはコンテンツのテキスト
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card_image">
+      </div>
+      <div class="card_content">
+        <div class="card_content_title">
+          タイトル
+        </div>
+        <div class="card_content_text">
+          ここにはコンテンツのテキスト
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card_image">
+      </div>
+      <div class="card_content">
+        <div class="card_content_title">
+          タイトル
+        </div>
+        <div class="card_content_text">
+          ここにはコンテンツのテキスト
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card_image">
+      </div>
+      <div class="card_content">
+        <div class="card_content_title">
+          タイトル
+        </div>
+        <div class="card_content_text">
+          ここにはコンテンツのテキスト
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card_image">
+      </div>
+      <div class="card_content">
+        <div class="card_content_title">
+          タイトル
+        </div>
+        <div class="card_content_text">
+          ここにはコンテンツのテキスト
+        </div>
+      </div>
+    </div>
+
+  </div>
 <script>
 // console.log("ok");
 // // require 'unirest'
@@ -76,10 +186,18 @@
   
 </script>
 <script>
-var from = 1;
-var to=99;
-var num=Array(to-from+1).fill(null).map((x,y)=>(y+from)**4).reduce((x,y)=>x+y);
-console.log(num)
+// var from = 1;
+// var to=99;
+// var num=Array(to-from+1).fill(null).map((x,y)=>(y+from)**4).reduce((x,y)=>x+y);
+// console.log(num)
+
+get_storage_lat = sessionStorage.getItem('session_save_lat');
+get_storage_lng = sessionStorage.getItem('session_save_lng');
+console.log('get_storage_lat');
+console.log(get_storage_lat);
+console.log('get_storage_lng');
+console.log(get_storage_lng);
+
 </script>
 
 
