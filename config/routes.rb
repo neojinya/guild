@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
+  get 'comments/create'
+
   root  'plans#index'
   get 'users/show'
 
@@ -7,6 +11,7 @@ Rails.application.routes.draw do
   }
   resources :users, :only => [:show, :edit]
   resources :plans
+  resources :comments
   # get 'plans' => 'plans#index'
   # get 'plans/new' => 'plans#new'
   # # post 'plans' => 'plans#create',as:"plans"
